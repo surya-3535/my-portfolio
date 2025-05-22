@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bandoju Suryaprakash Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+  })();
+</script>
+<canvas id="bgCanvas"></canvas>
+
+<header class="hero">
+  <nav class="navbar" role="navigation" aria-label="Primary Navigation">
+    <div class="logo" tabindex="0">Bandoju Suryaprakash</div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="#about" role="menuitem" tabindex="0">About</a></li>
+      <li role="none"><a href="#skills" role="menuitem" tabindex="0">Skills</a></li>
+      <li role="none"><a href="#projects" role="menuitem" tabindex="0">Projects</a></li>
+      <li role="none"><a href="#contact" role="menuitem" tabindex="0">Contact</a></li>
+    </ul>
+    <button id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+  </nav>
+  <div class="hero-content">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Bandoju Suryaprakash Profile Photo" style="width:120px;height:120px;border-radius:50%;margin-bottom:1.2rem;box-shadow:0 2px 8px rgba(0,0,0,0.12);object-fit:cover;">
+    <h1>Hi, I'm Bandoju Suryaprakash</h1>
+    <p>
+      Aspiring Cloud Engineer | B.Tech EEE Student<br>
+      Cloud Computing | AWS | Azure | GCP | Future Tech Explorer
+    </p>
+    <a href="#contact" class="btn-primary">Get In Touch</a>
+  </div>
+</header>
+
+<main>
+  <section id="about" class="section fade-section" tabindex="0" aria-label="About Me">
+    <h2>About Me</h2>
+    <p>
+      Hello! 👋<br>
+      I’m a B.Tech student majoring in Electrical and Electronics Engineering at Balaji Institute of Technology and Science, Warangal.<br>
+      Passionate about Cloud Computing and Emerging Technologies.<br>
+      <br>
+      Currently building hands-on experience with AWS, Microsoft Azure, and Google Cloud Platform.<br>
+      I enjoy exploring how cloud solutions drive innovation and transform businesses.<br>
+      <br>
+      <strong>Goals:</strong>
+      <ul>
+        <li>Achieve certifications like AWS Cloud Practitioner and Azure Fundamentals</li>
+        <li>Work on real-world cloud projects</li>
+        <li>Build a career as a Cloud Engineer or Solutions Architect</li>
+      </ul>
+      Open to internships, collaborative projects, and learning opportunities in the cloud domain.<br>
+      Let’s connect and grow together! 🚀
+    </p>
+    <p style="margin-top:1rem;">
+      <strong>Education:</strong><br>
+      Balaji Institute of Technology and Science, Warangal<br>
+      B.Tech, Electrical and Electronics Engineering (EEE)<br>
+      Nov 2022 - Jun 2026<br>
+      Grade: 7.18
+    </p>
+  </section>
+
+  <section id="skills" class="section fade-section" tabindex="0" aria-label="Skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Cloud Computing</div>
+      <div class="skill-card">Amazon Web Services (AWS)</div>
+      <div class="skill-card">Microsoft Azure</div>
+      <div class="skill-card">Google Cloud Platform (GCP)</div>
+      <div class="skill-card">Networking</div>
+      <div class="skill-card">Linux</div>
+      <div class="skill-card">Cybersecurity</div>
+      <div class="skill-card">Electrical Engineering</div>
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Self-Learning Project</div>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <strong>Certifications:</strong>
+      <ul>
+        <li>AWS Educate Introduction to Generative AI (Amazon Web Services, Issued Apr 2025)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="section fade-section" tabindex="0" aria-label="Projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <article class="project-card" tabindex="0">
+        <div class="project-image" style="height:140px; background:#e5e7eb; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:1rem;">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Cloud Computing Learner Project" style="max-height:120px; max-width:100%; border-radius:4px;">
+        </div>
+        <h3>Cloud Computing Learner (Self-Project)</h3>
+        <p>
+          Building foundational skills in AWS, Azure, and GCP. Deployed basic applications and static websites using cloud services. Practiced setting up virtual machines, databases, and storage solutions. Understanding security best practices and networking essentials in cloud environments. Working toward certifications to validate skills.
+        </p>
+      </article>
+      <article class="project-card" tabindex="0">
+        <div class="project-image" style="height:140px; background:#e5e7eb; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:1rem;">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Portfolio Website Project" style="max-height:120px; max-width:100%; border-radius:4px;">
+        </div>
+        <h3>Portfolio Website</h3>
+        <p>
+          Personal portfolio website to showcase my skills, projects, and certifications. Built with HTML, CSS, and JavaScript.
+        </p>
+        <a href="https://github.com/bandojusuryaprakash/portfolio" target="_blank" rel="noopener noreferrer" class="btn-secondary">View on GitHub</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <div class="project-image" style="height:140px; background:#e5e7eb; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-bottom:1rem;">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Cloud Resume Challenge Project" style="max-height:120px; max-width:100%; border-radius:4px;">
+        </div>
+        <h3>Cloud Resume Challenge</h3>
+        <p>
+          A cloud-based resume project demonstrating deployment, CI/CD, and infrastructure as code using AWS and related technologies.
+        </p>
+        <a href="#" class="btn-secondary" style="pointer-events:none;opacity:0.6;">Coming Soon</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="section fade-section" tabindex="0" aria-label="Contact Me">
+    <h2>Contact Me</h2>
+    <form id="contactForm" aria-label="Contact form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" class="btn-primary">Send</button>
+    </form>
+    <p id="formStatus" role="alert" aria-live="polite" style="margin-top:0.8rem;"></p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-social-icons" aria-label="Social media links">
+    <a href="https://github.com/bandojusuryaprakash" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" alt="GitHub" />
+    </a>
+    <a href="https://linkedin.com/in/bandojusuryaprakash" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <img src="https://cdn-icons-png.flaticon.com/24/174/174857.png" alt="LinkedIn" />
+    </a>
+    <!-- Add more social links as needed -->
+  </div>
+  &copy; 2024 Bandoju Suryaprakash. All Rights Reserved.
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #2563eb;
+  outline: none;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+
+/* Canvas background */
+canvas#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-color: #ffffff; /* Light mode background */
+  transition: background-color 0.5s ease;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1f2937; /* Match footer color */
+  backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed; /* Changed from sticky to fixed */
+  top: 0;
+  width: 100%;
+  z-index: 1100;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #111827; /* Slightly darker on scroll */
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff; /* White for logo text */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff; /* White for nav links */
+  display: inline-block;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a:focus::after {
+  width: 100%;
+  outline: none;
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff; /* White for dark mode toggle icon */
+  transition: color 0.3s ease;
+}
+
+#darkModeToggle:hover,
+#darkModeToggle:focus {
+  color: #2563eb;
+  outline: none;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  padding: 0 1rem;
+  background: transparent;
+  padding-top: 5rem; /* To offset fixed navbar height */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #3b82f6; /* Blue for hero name/title */
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #f59e42; /* Orange for subtitle/description */
+}
+
+/* Dark mode overrides for hero content */
+body.dark-mode .hero-content h1 {
+  color: #60a5fa; /* Lighter blue in dark mode */
+}
+
+body.dark-mode .hero-content p {
+  color: #f59e42; /* Orange in dark mode */
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #f59e42; /* Vibrant orange on hover/focus */
+  color: #fff;
+  outline: none;
+}
+
+/* Sections */
+.section {
+  max-width: 1100px; /* Increased from 900px */
+  margin: 3rem auto;
+  padding: 2.5rem 2rem; /* Increased padding */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgb(59 130 246 / 0.1);
+  transition: box-shadow 0.3s ease;
+  color: #1f2937;
+}
+
+.section:focus-within,
+.section:hover {
+  box-shadow: 0 6px 20px rgb(59 130 246 / 0.3);
+  outline: none;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+  border-bottom: 3px solid #3b82f6;
+  padding-bottom: 0.5rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s, border 0.2s;
+}
+
+.skill-card:hover,
+.skill-card:focus {
+  box-shadow: 0 6px 16px rgb(245 158 66 / 0.3);
+  outline: none;
+  border: 2px solid #f59e42;
+  transform: scale(1.07);
+  background-color: #fff7ed;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease;
+  color: #1f2937;
+}
+
+.project-card:hover,
+.project-card:focus {
+  box-shadow: 0 6px 16px rgb(59 130 246 / 0.3);
+  outline: none;
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.project-card a {
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.project-card a:hover,
+.project-card a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: 600;
+  color: #374151;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  color: #1f2937;
+  background-color: #fff;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 8px #3b82f6aa;
+}
+
+button[type="submit"] {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #2563eb;
+  outline: none;
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937;
+  color: #e0e0e0;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social-icons a img {
+  width: 28px;
+  height: 28px;
+  filter: grayscale(40%);
+  transition: filter 0.3s ease;
+}
+
+.footer-social-icons a:hover img,
+.footer-social-icons a:focus img {
+  filter: none;
+  outline: none;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #0f172a;
+  color: #fff; /* Main text is white */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark-mode #bgCanvas {
+  background-color: #0f172a; /* Dark mode background for canvas */
+}
+
+body.dark-mode .navbar {
+  background-color: #111827;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+body.dark-mode .navbar.scrolled {
+  background-color: rgba(15, 23, 42, 1);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.85);
+}
+
+body.dark-mode .navbar .logo {
+  color: #fff; /* White for logo/name in dark mode for best visibility */
+}
+
+body.dark-mode .nav-links li a,
+body.dark-mode #darkModeToggle {
+  color: #fff; /* White for nav links and toggle */
+}
+
+body.dark-mode .nav-links li a:hover,
+body.dark-mode .nav-links li a:focus,
+body.dark-mode #darkModeToggle:hover,
+body.dark-mode #darkModeToggle:focus {
+  color: #f59e42; /* Orange on hover/focus */
+  outline: none;
+}
+
+body.dark-mode .section {
+  background-color: #1e293b;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.85);
+  color: #fff;
+}
+
+body.dark-mode .section h2 {
+  color: #60a5fa; /* Blue for section headings */
+  border-bottom: 3px solid #f59e42; /* Orange underline */
+}
+
+body.dark-mode .section p,
+body.dark-mode .section li,
+body.dark-mode .section span {
+  color: #fff;
+}
+
+body.dark-mode .project-card {
+  background-color: #273449;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.85);
+  color: #fff; /* Project card text white */
+}
+
+body.dark-mode .project-card h3 {
+  color: #60a5fa; /* Blue for project titles */
+}
+
+body.dark-mode .project-card p,
+body.dark-mode .project-card li,
+body.dark-mode .project-card span {
+  color: #fff;
+}
+
+body.dark-mode .project-card a {
+  color: #60a5fa; /* Blue for project links */
+}
+
+body.dark-mode .project-card a:hover,
+body.dark-mode .project-card a:focus {
+  color: #f59e42; /* Orange on hover/focus */
+  text-decoration: underline;
+  outline: none;
+}
+
+body.dark-mode .skill-card {
+  color: #f59e42; /* Orange for skill text */
+  background-color: #273449;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode textarea {
+  background-color: #273449;
+  border-color: #475569;
+  color: #fff;
+}
+
+body.dark-mode input[type="text"]:focus,
+body.dark-mode input[type="email"]:focus,
+body.dark-mode textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 8px #60a5faaa;
+}
+
+body.dark-mode button[type="submit"] {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+body.dark-mode button[type="submit"]:hover,
+body.dark-mode button[type="submit"]:focus {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+body.dark-mode label {
+  color: #fff; /* Ensure form labels are white */
+}
+
+body.dark-mode footer {
+  background-color: #1f2937;
+  color: #60a5fa; /* Blue for footer text */
+}
+
+/* Remove filter for bright, colorful icons in dark mode footer */
+body.dark-mode .footer-social-icons a img {
+  filter: none;
+  transition: none;
+}
+
+body.dark-mode .footer-social-icons a:hover img,
+body.dark-mode .footer-social-icons a:focus img {
+  filter: none;
+  outline: none;
+}
+
+/* Fade-in animation for sections */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
