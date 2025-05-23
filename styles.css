@@ -140,6 +140,15 @@ canvas#bgCanvas {
   padding-top: 5rem; /* To offset fixed navbar height */
 }
 
+.hero-content img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  object-fit: cover;
+}
+
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -516,23 +525,220 @@ body.dark-mode .footer-social-icons a:focus img {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  /* Mobile styles */
   .navbar {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0.5rem 1rem;
   }
 
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: center;
   }
 
   .nav-links li {
     margin: 0.5rem 0;
   }
 
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+
+  .hero {
+    height: auto;
+    padding-top: 6rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  /* Tablet styles */
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary {
+    padding: 0.7rem 1.3rem;
+    font-size: 1.05rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 901px) {
+  /* Desktop styles */
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .nav-links {
+    gap: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Resume Section Styles */
+/* Removed resume-container styles as resume section is removed */
+/*
+.resume-container {
+  max-width: 540px;
+  margin: 2rem auto 2rem auto;
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: transparent;
+  color: inherit;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+*/
+
+.resume-container:focus-within,
+.resume-container:hover {
+  box-shadow: none;
+}
+
+.resume-container:hover,
+.resume-container:focus-within {
+  border-color: transparent;
+}
+
+.resume-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #1e40af;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #3b82f6;
+  color: white;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.resume-download-btn:hover,
+.resume-download-btn:focus {
+  background-color: #2563eb;
+  outline: none;
+}
+
+.resume-format-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.resume-container h2 {
+  margin-bottom: 1rem;
+}
+
+.resume-container p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #374151;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resume-download-btn:hover,
+.resume-download-btn:focus {
+  background-color: #f59e42;
+  color: #fff;
+  outline: none;
+}
+
+.resume-format-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #6b7280;
 }
